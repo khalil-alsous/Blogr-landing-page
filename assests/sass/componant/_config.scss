@@ -1,0 +1,32 @@
+$main-color: hsl(356, 100%, 66%);
+$secondary-color: hsl(208, 49%, 24%);
+$White-text: hsl(0, 0%, 100%);
+$section-padding: 80px;
+
+@mixin transition-ease {
+    transition: all 0.4s ease-in-out;
+}
+
+@mixin background-section($img-name,$color) {
+    background-color: $color;
+    background-image: url("../../images/#{$img-name}");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+@mixin rounded-corner($y,$x) {
+    border-#{$y}-#{$x}-radius: 90px;
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px) {
+    @content;
+    }
+}
+
+@mixin media-lg {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}

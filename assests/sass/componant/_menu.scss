@@ -1,0 +1,227 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btn-burger{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        overflow: hidden;
+
+        span{
+            display: block;
+            position: absolute;
+            top: 10px;
+            width: 30px;
+            height: 3px;
+            background-color: $White-text;
+            position: relative;
+            @include transition-ease;
+
+            &::after,
+            &::before{
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $White-text;
+            }
+            &::after{
+                top: -10px;
+            }
+            &::before{
+                bottom: -10px;
+                width: 60%;
+            }
+        }
+        .openList {
+            transform: rotate(720deg);
+            background: transparent;
+            &::before {
+                width: 100%;
+                transform: rotate(45deg) translate(-14px, 6px);
+            }
+            &::after {
+                transform: rotate(-45deg) translate(-20px, 0);
+            }
+        }
+    }
+    
+    .cont-nav-butt{    
+        background-color: $White-text;
+        padding: 20px;
+        border-radius: 7px;
+        box-shadow: 0 0 10px 0 #6f6f6f;
+        width: 85%;
+        text-align: center;
+        height: fit-content;
+        position: absolute;
+        top: 0%;
+        left: -100%;
+        transform: translateX(-50%);
+        @include transition-ease;
+
+        nav{
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+            ul{
+                list-style-type: none;
+                padding: 0;
+                li a{
+                    text-decoration: none;
+                    color: #777;
+                    font-weight: bold;
+                    width: 100%;
+                    padding: 10px;
+                    display: block;
+                    font-size: 16px;
+                    i{
+                        margin-left: 5px;
+                        font-size: 14px;
+                        color: $main-color
+                    }
+
+                    &:hover{
+                        color: #000;
+                        text-decoration: underline;
+                    }
+                }
+                .dropDown{
+                    border-radius: 5px;
+                    height: 0;
+                    padding: 0 15px;
+                    visibility: hidden;
+                    overflow: hidden;
+                    @include transition-ease;
+                    background-color: #EFEFF1;
+                }
+            }
+        }
+
+    .btn-cont{
+        text-align: center;
+        button{
+            display: block;
+            margin: 0px auto 10px;
+            padding: 7px 10px;
+        }
+        button:first-child{
+            background-color: transparent;
+            color: #777;
+        }        
+        button:last-child{
+            background-image: linear-gradient(to right,hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+            color: $White-text;
+
+            &:hover {
+            background-image: linear-gradient(to right, hsl(353, 100%, 62%),hsl(13, 100%, 72%));
+                color: $White-text;
+            }
+        }  
+    } 
+    .dropList{
+        height: fit-content !important;
+        padding: 15px !important;
+        visibility: visible !important;
+        margin: 10px 0;
+    }
+    }
+
+    .openList{
+        top: 25%;
+        left: 50%;
+    }
+
+@include media-lg{
+        .btn-burger{
+            display: none;
+        }
+
+        .cont-nav-butt{
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: 0 0 0 0 #6f6f6f;
+            position: relative;
+            top: 0%;
+            left: 0%;
+            transform: translateX(0);
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            @include transition-ease;
+
+            nav{
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-left: 35px;
+                .list{
+                    margin-bottom: 0;
+                    display: flex;
+                    li{
+                        a{
+                            color: #eee;
+                            &:hover{
+                                color: $White-text;
+                            }
+                            i{
+                                color: #eee;
+                            }
+                        }
+                        .dropDown{
+                            list-style: none;
+                            background-color: $White-text;
+                            width: 150px;
+                            border-radius: 5px;
+                            box-shadow: 0 0 5px 0px rgb(112, 112, 112);
+                            position: absolute;
+                            top: 40px;
+                            height: 0;
+                            padding: 0 15px;
+                            @include transition-ease;
+
+                            li{
+                                padding: 5px 0px 5px 10px;
+                                text-align: left;
+                                &>a{
+                                    color: #888;
+                                    text-decoration: none;
+                                    font-size: 16px;
+                                    padding: 0;
+                                    font-weight: bold;
+                                    @include transition-ease;
+
+                                    &:hover{
+                                        color: #000;
+                                        padding-left: 5px;
+                                    }   
+                                }
+                            }
+                        }    
+                    }
+                }
+            }
+
+            .btn-cont{
+                display: flex;
+
+                button:first-child{
+                    color: #eee;
+                }
+                button:last-child{
+                    background-image: none;
+                    background-color: $White-text;
+                    color: $main-color;
+                    &:hover{
+                        background-image: none;
+                        background-color: hsl(13, 100%, 72%);
+                        color: $White-text;            
+                    }
+                }
+            }
+        }
+    }        
+}
